@@ -3,14 +3,29 @@
   <script src="js/angular.min.js"></script>
   <script src="js/controller.js"></script>
 </head>
-<body ng-controller="PhoneListCtrl">
+<body ng-controller="pokeController">
+  <h1 style="text-align:center"><div>ANGULAR POKEDEXXX</div></h1>
+<!-- <h2>{{currentPokemon.name}}</h2> -->
+<img src="http://pokeapi.co/media/img/{{currentPokemon.national_id}}.png"><br>
+      <h3>Types:</h3>
+      <ul><li ng-repeat="type in currentPokemon.types">
+        {{ type.name }}
 
-  <ul>
-    <li ng-repeat="phone in phones">
-      {{phone.name}}
-      <p>{{phone.snippet}}</p>
-    </li>
+      </li>
   </ul>
+        <hr>
+        {{lastAnswer}}
+<form ng-submit="submit()">
+  Enter a number for a Pokemon and hit enter:
+  <input type="text" ng-model="text" name="pokeNumber" />
+  <input type="submit" id="numberSubmit" value="Submit" />
+</form>
+
+<form ng-submit="guess()">
+  Enter a number for a Pokemon and hit enter:
+  <input type="text" ng-model="text2" name="pokeGuess" />
+  <input type="submit" id="guessSubmit" value="Submit" />
+</form>
 
 </body>
 </html>
