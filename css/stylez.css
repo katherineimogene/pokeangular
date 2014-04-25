@@ -19,7 +19,6 @@ font-family: 'Press Start 2P', 'cursive';
 }
 
 #last-poketainer {
-  visibility: hidden;
   width: 40%;
   float: right;
   background-color: pink;
@@ -30,4 +29,9 @@ font-family: 'Press Start 2P', 'cursive';
 #answer-box {
   text-align: center;
   background-color: white;
+}
+
+.ng-hide {
+  display:block!important;
+  visibility: hidden;
 }

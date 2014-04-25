@@ -3,6 +3,7 @@ var pokeApp = angular.module('pokeApp', [])
 pokeApp.controller('pokeController', function($scope, $http) {
     angular.element(document).ready(function() {
         $scope.getPoke()
+        $scope.caughtOne = false
     })
     $scope.correctCount = 0
 
@@ -22,7 +23,7 @@ pokeApp.controller('pokeController', function($scope, $http) {
             $scope.updateCount()
             $scope.getPoke()
         } else {
-            $scope.lastAnswer = this.text2 + " is incorrect! It was.." + $scope.currentPokemon.name
+            $scope.lastAnswer = this.text2
             $scope.getPoke()
         }
         this.text2 = ""
@@ -30,6 +31,7 @@ pokeApp.controller('pokeController', function($scope, $http) {
 
     $scope.catchLastPokemon = function() {
         $scope.caughtPokemon = $scope.currentPokemon
+        $scope.caughtOne = true
     }
 
     $scope.updateCount = function() {

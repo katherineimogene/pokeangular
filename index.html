@@ -16,11 +16,10 @@
           {{ type.name }}
         </li>
       </ul>
-      </div><div id="last-poketainer">
+      </div><div ng-show="caughtOne" id="last-poketainer">
     <h2>Number correct: {{correctCount}}</h2>
  <img src="http://pokeapi.co/media/img/{{caughtPokemon.national_id}}.png"><br>
     The last Pokemon was {{caughtPokemon.name}}. You guessed {{lastGuess}}. </div>
-      {{lastAnswer}}
       <div id="answer-box">
         <form ng-submit="guess()">
           Enter the Poke's name please:
