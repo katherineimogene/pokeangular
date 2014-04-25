@@ -1,29 +1,34 @@
 <html ng-app="pokeApp">
-<head>
-  <script src="js/angular.min.js"></script>
-  <script src="js/controller.js"></script>
-</head>
-<body ng-controller="pokeController">
-  <h1 style="text-align:center"><div>ANGULAR POKEDEXXX</div></h1>
-  <h2>Number correct: {{correctCount}}</h2>
-  <h2>{{caughtPokemon.name}}</h2>
-<img src="http://pokeapi.co/media/img/{{currentPokemon.national_id}}.png"><br>
-      <h3>Types:</h3>
-      <ul><li ng-repeat="type in currentPokemon.types">
-        {{ type.name }}
+  <head>
+    <script src="js/angular.min.js"></script>
+    <script src="js/controller.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/stylez.css">
+    <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+  </head>
+  <body ng-controller="pokeController">
+    <h1 style="text-align:center">ANGULAR POKEDEXXX</h1>
+    <div id="big-container">
+      <div id="current-poketainer">
 
-      </li>
-  </ul>
-        <hr>
-        {{lastAnswer}}
-
-<form ng-submit="guess()">
-  Enter the Poke's name please:
-  <input type="text" ng-model="text2" name="pokeGuess" />
-  <input type="submit" id="guessSubmit" value="Guess " />
-</form>
-
-<button ng-click="getPoke()">New Poke</button>
-
-</body>
+        <img src="http://pokeapi.co/media/img/{{currentPokemon.national_id}}.png"><br>
+        <h3>Types:</h3>
+        <ul><li ng-repeat="type in currentPokemon.types">
+          {{ type.name }}
+        </li>
+      </ul>
+      </div><div id="last-poketainer">
+    <h2>Number correct: {{correctCount}}</h2>
+ <img src="http://pokeapi.co/media/img/{{caughtPokemon.national_id}}.png"><br>
+    The last Pokemon was {{caughtPokemon.name}}. You guessed {{lastGuess}}. </div>
+      {{lastAnswer}}
+      <div id="answer-box">
+        <form ng-submit="guess()">
+          Enter the Poke's name please:
+          <input type="text" ng-model="text2" name="pokeGuess" />
+          <input type="submit" id="guessSubmit" value="Guess " />
+        </form>
+        <button ng-click="getPoke()">New Poke</button>
+      </div>
+    </div>
+  </body>
 </html>

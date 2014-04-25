@@ -1,14 +1,14 @@
 var pokeApp = angular.module('pokeApp', [])
 
 pokeApp.controller('pokeController', function($scope, $http) {
-    angular.element(document).ready(function(){
+    angular.element(document).ready(function() {
         $scope.getPoke()
     })
     $scope.correctCount = 0
 
-    $scope.getPoke = function(){
+    $scope.getPoke = function() {
         var pokeId = Math.floor(Math.random() * 151) + 1
-        $http.get('http://pokeapi.co/api/v1/pokemon/' + pokeId+ '/').
+        $http.get('http://pokeapi.co/api/v1/pokemon/' + pokeId + '/').
         success(function(data) {
             $scope.currentPokemon = data
         })
@@ -16,6 +16,7 @@ pokeApp.controller('pokeController', function($scope, $http) {
 
     $scope.guess = function() {
         $scope.catchLastPokemon()
+        $scope.lastGuess = this.text2
         if (this.text2 == $scope.currentPokemon.name) {
             $scope.lastAnswer = "Correct!"
             $scope.updateCount()
@@ -27,11 +28,12 @@ pokeApp.controller('pokeController', function($scope, $http) {
         this.text2 = ""
     }
 
-    $scope.catchLastPokemon = function(){
+    $scope.catchLastPokemon = function() {
         $scope.caughtPokemon = $scope.currentPokemon
     }
 
-    $scope.updateCount = function(){
+    $scope.updateCount = function() {
         $scope.correctCount += 1
     }
+
 })
