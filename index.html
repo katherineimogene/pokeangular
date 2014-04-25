@@ -15,17 +15,14 @@
   </ul>
         <hr>
         {{lastAnswer}}
-<form ng-submit="submit()">
-  Enter a number for a Pokemon and hit enter:
-  <input type="text" ng-model="text" name="pokeNumber" />
-  <input type="submit" id="numberSubmit" value="Submit" />
-</form>
 
 <form ng-submit="guess()">
-  Enter a number for a Pokemon and hit enter:
+  Enter the Poke's name please:
   <input type="text" ng-model="text2" name="pokeGuess" />
-  <input type="submit" id="guessSubmit" value="Submit" />
+  <input type="submit" id="guessSubmit" value="Guess " />
 </form>
+
+<button ng-click="getPoke()">New Poke</button>
 
 </body>
 </html>
