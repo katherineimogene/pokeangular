@@ -15,20 +15,17 @@ pokeApp.controller('pokeController', function($scope, $http) {
         })
     }
 
-    $scope.guessPoke = function() {
+    $scope.submitUserGuess = function() {
         $scope.catchLastPokemon()
         $scope.evaluateGuess(this.text2)
-        this.text2 = ""
+        $scope.resetInputField()
     }
 
     $scope.evaluateGuess = function(userGuess){
         if (userGuess == $scope.currentPokemon.name) {
-            $scope.feedback = "Correctly!"
-            $scope.updateCount()
-            $scope.getPoke()
+            $scope.respondReset("correctly!",1)
         } else {
-            $scope.feedback = userGuess
-            $scope.getPoke()
+            $scope.respondReset(userGuess,0)
         }
     }
 
@@ -37,8 +34,17 @@ pokeApp.controller('pokeController', function($scope, $http) {
         $scope.caughtOne = true
     }
 
-    $scope.updateCount = function() {
-        $scope.correctCount += 1
+    $scope.respondReset = function(response,countChange){
+        $scope.feedback = response
+        $scope.updateCount(countChange)
+        $scope.getPoke()
     }
 
+    $scope.updateCount = function(countChange) {
+        $scope.correctCount += countChange
+    }
+
+    $scope.resetInputField = function(){
+        this.text2 = ""
+    }
 })

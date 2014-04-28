@@ -23,7 +23,7 @@
     The last Pokemon was {{caughtPokemon.name}}. <br>
     You guessed {{feedback}}. </div>
       <div id="answer-box">
-        <form ng-submit="guessPoke()">
+        <form ng-submit="submitUserGuess()">
           Enter the Poke's name please:
           <input type="text" ng-model="text2" name="pokeGuess" />
           <input type="submit" id="guessSubmit" value="Guess " />
