@@ -1,10 +1,5 @@
   var pokeApp = angular.module('pokeApp', []);
 
-  pokeApp.config(function($httpProvider) {
-      $httpProvider.defaults.useXDomain = true;
-      delete $httpProvider.defaults.headers.common['X-Requested-With'];
-  });
-
   pokeApp.controller('pokeController', function($scope, $http) {
     angular.element(document).ready(function() {
         $scope.getPoke()
@@ -14,8 +9,9 @@
 
     $scope.getPoke = function() {
         var pokeId = Math.floor(Math.random() * 151) + 1
-        $http.get('http://pokeapi.co/api/v1/pokemon/' + pokeId + '/').
-        success(function(data) {
+        var pokeUrl = 'http://pokeapi.co/api/v1/pokemon/' + pokeId + '/?callback=JSON_CALLBACK'
+        $http.jsonp(pokeUrl)
+        .success(function(data) {
             $scope.currentPokemon = data
             $scope.currentPokeImg = $scope.getPokeImg($scope.currentPokemon)
         })
