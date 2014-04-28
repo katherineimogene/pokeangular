@@ -12,30 +12,45 @@ pokeApp.controller('pokeController', function($scope, $http) {
         $http.get('http://pokeapi.co/api/v1/pokemon/' + pokeId + '/').
         success(function(data) {
             $scope.currentPokemon = data
+            $scope.currentPokeImg = $scope.getPokeImg($scope.currentPokemon)
         })
     }
 
-    $scope.guess = function() {
+    $scope.submitUserGuess = function() {
         $scope.catchLastPokemon()
-        $scope.lastGuess = this.text2
-        if (this.text2 == $scope.currentPokemon.name) {
-            $scope.lastAnswer = "Correct!"
-            $scope.updateCount()
-            $scope.getPoke()
+        $scope.evaluateGuess(this.userGuess)
+        $scope.resetInputField()
+    }
+
+    $scope.evaluateGuess = function(userGuess){
+        if (userGuess == $scope.currentPokemon.name) {
+            $scope.respondReset("correctly!",1)
         } else {
-            $scope.lastAnswer = this.text2
-            $scope.getPoke()
+            $scope.respondReset(userGuess,0)
         }
-        this.text2 = ""
     }
 
     $scope.catchLastPokemon = function() {
         $scope.caughtPokemon = $scope.currentPokemon
         $scope.caughtOne = true
+        $scope.caughtPokeImg = $scope.getPokeImg($scope.caughtPokemon)
     }
 
-    $scope.updateCount = function() {
-        $scope.correctCount += 1
+    $scope.respondReset = function(response,countChange){
+        $scope.feedback = response
+        $scope.updateCount(countChange)
+        $scope.getPoke()
     }
 
+    $scope.updateCount = function(countChange) {
+        $scope.correctCount += countChange
+    }
+
+    $scope.resetInputField = function(){
+        this.userGuess = ""
+    }
+
+    $scope.getPokeImg = function(thisPoke){
+        return "http://pokeapi.co/media/img/"+thisPoke.national_id+".png"
+    }
 })
