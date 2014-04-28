@@ -11,6 +11,7 @@
       <div id="current-poketainer">
 
         <img src="http://pokeapi.co/media/img/{{currentPokemon.national_id}}.png"><br>
+        <h4>{{ currentPokemon.name }}</h4>
         <h3>Types:</h3>
         <ul><li ng-repeat="type in currentPokemon.types">
           {{ type.name }}
