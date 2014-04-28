@@ -1,6 +1,11 @@
-var pokeApp = angular.module('pokeApp', [])
+  var pokeApp = angular.module('pokeApp', []);
 
-pokeApp.controller('pokeController', function($scope, $http) {
+  pokeApp.config(function($httpProvider) {
+      $httpProvider.defaults.useXDomain = true;
+      delete $httpProvider.defaults.headers.common['X-Requested-With'];
+  });
+
+  pokeApp.controller('pokeController', function($scope, $http) {
     angular.element(document).ready(function() {
         $scope.getPoke()
         $scope.caughtOne = false
