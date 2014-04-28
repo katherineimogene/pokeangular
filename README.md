@@ -1,11 +1,11 @@
-pokeangular
+Angular Pokedexxx
 ===========
 
-AngularJS Pokemon flashcards
+[](http://katherineimogene.com/pokeangular/)
 
-Our first experiement with Angular. 
+An enthusiastic, if shallow, dive into [AngularJS](https://angularjs.org/)
 
-The game presently works locally in Safari only...because of this: 
-```
-XMLHttpRequest cannot load http://pokeapi.co/api/v1/pokemon/20/. No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://katherineimogene.com' is therefore not allowed access.
-```
+Collaboration with [Lucas Mathis](https://github.com/lilkraftwerk)
+
+Uses the [PokeApi](http://pokeapi.co/)
+
