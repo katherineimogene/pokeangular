@@ -1,13 +1,42 @@
 <html ng-app="pokeApp">
-  <head>
-    <script src="js/angular.min.js"></script>
-    <script src="js/controller.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/stylez.css">
-    <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
-  </head>
-  <body ng-controller="pokeController">
-    <h1 style="text-align:center">ANGULAR POKEDEXXX</h1>
-    <div id="big-container">
+<head>
+  <script src="js/angular.min.js"></script>
+  <script src="js/controller.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/stylez.css">
+  <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+</head>
+<body ng-controller="pokeController">
+  <div id="main">
+    <h1>ANGULAR POKEDEXXX</h1>
+
+    <div class="poke-card">
+      <img class="poke-img" src="{{currentPokeImg}}">
+      <div class="type"ng-repeat="type in currentPokemon.types">
+        {{ type.name }}
+      </div>
+    </div>
+    <div id="form-div">
+      <form ng-submit="submitUserGuess()">
+        <input type="text" ng-model="userGuess" name="pokeGuess" placeholder="What's this Poke's name?"/>
+        <button type="submit" id="guessSubmit">Guess</button>
+      </form>
+    </div>
+
+      <div ng-show="caughtOne" class="poke-card results">
+        <h3>This is {{caughtPokemon.name}}</h3>
+        <img class="pokie-img" src="{{caughtPokeImg}}">
+        <div class="feedback">
+          You guessed {{feedback}}<br>
+          Your score: {{correctCount}}
+        </div>
+      </div>
+
+  </div>
+</body>
+</html>
+
+
+    <!-- <div id="big-container">
       <div id="current-poketainer">
 
         <img src="{{currentPokeImg}}"><br>
@@ -17,19 +46,19 @@
           {{ type.name }}
         </li>
       </ul>
-      </div><div ng-show="caughtOne" id="last-poketainer">
-    <h2>Number correct: {{correctCount}}</h2>
- <img src="{{caughtPokeImg}}"<br>
-    The last Pokemon was {{caughtPokemon.name}}. <br>
-    You guessed {{feedback}}. </div>
+      </div>
+      <div ng-show="caughtOne" id="last-poketainer">
+        <h2>Number correct: {{correctCount}}</h2>
+        {{caughtPokemon.name}}. <br>
+        <img src="{{caughtPokeImg}}"<br>
+        You guessed {{feedback}}
+      </div>
       <div id="answer-box">
         <form ng-submit="submitUserGuess()">
           Enter the Poke's name please:
-          <input type="text" ng-model="text2" name="pokeGuess" />
+          <input type="text" ng-model="userGuess" name="pokeGuess" />
           <input type="submit" id="guessSubmit" value="Guess " />
         </form>
         <button ng-click="getPoke()">New Poke</button>
       </div>
-    </div>
-  </body>
-</html>
+    </div> -->
