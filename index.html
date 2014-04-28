@@ -22,43 +22,18 @@
       </form>
     </div>
 
-      <div ng-show="caughtOne" class="poke-card results">
-        <h3>This is {{caughtPokemon.name}}</h3>
-        <img class="pokie-img" src="{{caughtPokeImg}}">
-        <div class="feedback">
-          You guessed {{feedback}}<br>
-          Your score: {{correctCount}}
-        </div>
+    <div ng-show="caughtOne" class="poke-card results">
+      <h3>This is {{caughtPokemon.name}}</h3>
+      <img class="pokie-img" src="{{caughtPokeImg}}">
+      <div class="feedback">
+        You guessed {{feedback}}<br>
+        Your score: {{correctCount}}
       </div>
+    </div>
+
+  <div class="footer"><a href="https://github.com/katherineimogene/pokeangular" target="_blank">View on Github</a></div>
 
   </div>
+
 </body>
 </html>
-
-
-    <!-- <div id="big-container">
-      <div id="current-poketainer">
-
-        <img src="{{currentPokeImg}}"><br>
-        <h4>{{ currentPokemon.name }}</h4>
-        <h3>Types:</h3>
-        <ul><li ng-repeat="type in currentPokemon.types">
-          {{ type.name }}
-        </li>
-      </ul>
-      </div>
-      <div ng-show="caughtOne" id="last-poketainer">
-        <h2>Number correct: {{correctCount}}</h2>
-        {{caughtPokemon.name}}. <br>
-        <img src="{{caughtPokeImg}}"<br>
-        You guessed {{feedback}}
-      </div>
-      <div id="answer-box">
-        <form ng-submit="submitUserGuess()">
-          Enter the Poke's name please:
-          <input type="text" ng-model="userGuess" name="pokeGuess" />
-          <input type="submit" id="guessSubmit" value="Guess " />
-        </form>
-        <button ng-click="getPoke()">New Poke</button>
-      </div>
-    </div> -->
