@@ -44,13 +44,14 @@ img.poke-img {
 input {
     padding: 0.7em 1em;
     display: block;
-    border: 1px solid #ccc;
+    border: 2px solid #3498db;
     /*box-shadow: inset 0 1px 3px #ddd;*/
     border-radius: 4px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    width: 100%;
+    width: 106%;
+    margin-left: -10px;
     text-align: center;
 }
 
@@ -63,10 +64,11 @@ button {
     color: #34495e; /* rgba not supported (IE 8) */
     border: 1px solid #999;  /*IE 6/7/8*/
     border: none rgba(0, 0, 0, 0);  /*IE9 + everything else*/
-    background-color: #E6E6E6;
+    background-color: #3498db;
     text-decoration: none;
     border-radius: 4px;
-    width: 100%;
+    width: 106%;
+    margin-left: -10px;
 
 }
 
