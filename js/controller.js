@@ -15,18 +15,21 @@ pokeApp.controller('pokeController', function($scope, $http) {
         })
     }
 
-    $scope.guess = function() {
+    $scope.guessPoke = function() {
         $scope.catchLastPokemon()
-        $scope.lastGuess = this.text2
-        if (this.text2 == $scope.currentPokemon.name) {
-            $scope.lastAnswer = "Correct!"
+        $scope.evaluateGuess(this.text2)
+        this.text2 = ""
+    }
+
+    $scope.evaluateGuess = function(userGuess){
+        if (userGuess == $scope.currentPokemon.name) {
+            $scope.feedback = "Correctly!"
             $scope.updateCount()
             $scope.getPoke()
         } else {
-            $scope.lastAnswer = this.text2
+            $scope.feedback = userGuess
             $scope.getPoke()
         }
-        this.text2 = ""
     }
 
     $scope.catchLastPokemon = function() {
