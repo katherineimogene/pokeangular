@@ -18,7 +18,7 @@ pokeApp.controller('pokeController', function($scope, $http) {
 
     $scope.submitUserGuess = function() {
         $scope.catchLastPokemon()
-        $scope.evaluateGuess(this.text2)
+        $scope.evaluateGuess(this.userGuess)
         $scope.resetInputField()
     }
 
@@ -47,7 +47,7 @@ pokeApp.controller('pokeController', function($scope, $http) {
     }
 
     $scope.resetInputField = function(){
-        this.text2 = ""
+        this.userGuess = ""
     }
 
     $scope.getPokeImg = function(thisPoke){
