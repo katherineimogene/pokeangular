@@ -10,7 +10,7 @@
     <div id="big-container">
       <div id="current-poketainer">
 
-        <img src="http://pokeapi.co/media/img/{{currentPokemon.national_id}}.png"><br>
+        <img src="{{currentPokeImg}}"><br>
         <h4>{{ currentPokemon.name }}</h4>
         <h3>Types:</h3>
         <ul><li ng-repeat="type in currentPokemon.types">
@@ -19,7 +19,7 @@
       </ul>
       </div><div ng-show="caughtOne" id="last-poketainer">
     <h2>Number correct: {{correctCount}}</h2>
- <img src="http://pokeapi.co/media/img/{{caughtPokemon.national_id}}.png"><br>
+ <img src="{{caughtPokeImg}}"<br>
     The last Pokemon was {{caughtPokemon.name}}. <br>
     You guessed {{feedback}}. </div>
       <div id="answer-box">

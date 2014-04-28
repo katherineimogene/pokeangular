@@ -12,6 +12,7 @@ pokeApp.controller('pokeController', function($scope, $http) {
         $http.get('http://pokeapi.co/api/v1/pokemon/' + pokeId + '/').
         success(function(data) {
             $scope.currentPokemon = data
+            $scope.currentPokeImg = $scope.getPokeImg($scope.currentPokemon)
         })
     }
 
@@ -32,6 +33,7 @@ pokeApp.controller('pokeController', function($scope, $http) {
     $scope.catchLastPokemon = function() {
         $scope.caughtPokemon = $scope.currentPokemon
         $scope.caughtOne = true
+        $scope.caughtPokeImg = $scope.getPokeImg($scope.caughtPokemon)
     }
 
     $scope.respondReset = function(response,countChange){
@@ -46,5 +48,9 @@ pokeApp.controller('pokeController', function($scope, $http) {
 
     $scope.resetInputField = function(){
         this.text2 = ""
+    }
+
+    $scope.getPokeImg = function(thisPoke){
+        return "http://pokeapi.co/media/img/"+thisPoke.national_id+".png"
     }
 })
